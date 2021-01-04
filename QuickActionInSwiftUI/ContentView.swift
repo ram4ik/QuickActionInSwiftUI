@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var quickActionObservable: QuickActionObservable
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Quick actions in SwifUI")
+                .padding()
+            
+            if quickActionObservable.selectedAction?.title != nil {
+                Text(quickActionObservable.selectedAction!.title)
+            }
+        }
     }
 }
 
